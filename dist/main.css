@@ -1,3 +1,6 @@
+img {
+  max-width: 100%; }
+
 .order {
   opacity: 0;
   transition: all 0.3s;
@@ -14,6 +17,22 @@
   .order--active {
     display: flex;
     opacity: 1; }
+  .order__inner {
+    position: relative;
+    max-width: 25%; }
+  .order__close {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #fff;
+    border: none;
+    border-radius: 100%;
+    height: 34px;
+    width: 35px;
+    font-size: 18px;
+    cursor: pointer; }
+    .order__close__icon {
+      vertical-align: middle; }
 
 .orderTrigger {
   background: none;

@@ -3,10 +3,10 @@
         <div class="order" v-show="showModal">
             <div class="order__inner">
                 <button class="order__close" @click="hideModal">
-                    <i class="fas fa-arrow-left"></i>
+                    <i class="order__close__icon fas fa-arrow-left"></i>
                 </button>
                 <div class="order__img">
-                    <img :src="order.images.thumbnail" :alt="order.name">
+                    <img :src="order.images.full_size" :alt="order.name">
                 </div>
             </div>
         </div>
