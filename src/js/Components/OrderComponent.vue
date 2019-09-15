@@ -48,7 +48,7 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">$</div>
                                     </div>
-                                    <input id="order__budget" type="text" class="form-control"  :name="order.Order_details[2].name" v-model="budget" :class="{'is-invalid': $v.budget.$error}">
+                                    <input id="order__budget" type="text" class="form-control"  :name="order.Order_details[2].name" v-model="budget" :class="{'is-invalid': $v.budget.$error}" @change="calculateTotal">
                                     <div class="invalid-feedback" v-if="!$v.budget.between">
                                         This number should be between 5 and 500.
                                     </div>
@@ -63,7 +63,7 @@
                     <p class="order__optionsLabel">Please select options (optional)</p>
 
                     <div class="order__options">
-                        <div class="order__option row" v-for="option in order.options">
+                        <div class="order__option row" v-for="option in options">
                             <div class="col-sm-4">{{ option.name }}</div>
                             <div class="order__optionDiff col-sm-4">
                                 (add
@@ -72,7 +72,7 @@
                             </div>
                             <div class="col-sm-3">
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" :id="'option' + option.id">
+                                    <input type="checkbox" class="custom-control-input" :id="'option' + option.id" @change="option.isChecked = $event.target.checked; calculateTotal()">
                                     <label class="custom-control-label" :for="'option' + option.id"></label>
                                 </div>
                             </div>
@@ -109,7 +109,8 @@
                 total: 0,
                 source: '',
                 instructions: '',
-                budget: 0
+                budget: 0,
+                options: this.order.options.map((option) => ({...option}))
             };
         },
 
@@ -136,6 +137,22 @@
 
             submit() {
                 this.$v.$touch();
+            },
+
+            calculateTotal() {
+                let amount = +this.budget;
+                this.options.forEach(option => {
+                    if (!option.isChecked) {
+                        return;
+                    }
+
+                    if (option.increase) {
+                        amount += amount / 100 * option.increase;
+                    } else {
+                        amount += +option.price;
+                    }
+                });
+                this.total = Math.round(amount);
             }
         },
 
