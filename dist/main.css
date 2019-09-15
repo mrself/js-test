@@ -37,8 +37,6 @@ img {
     width: 35px;
     font-size: 18px;
     cursor: pointer; }
-    .order__close__icon {
-      vertical-align: middle; }
   .order__content {
     padding: 0 10px; }
   .order__publication {
