@@ -64,13 +64,13 @@
 
                     <div class="order__options">
                         <div class="order__option row" v-for="option in options">
-                            <div class="col-sm-4">{{ option.name }}</div>
-                            <div class="order__optionDiff col-sm-4">
+                            <div class="col-5">{{ option.name }}</div>
+                            <div class="order__optionDiff col-4">
                                 (add
                                 <span v-if="option.increase">{{ option.increase }}%</span>
                                 <span v-else>${{ option.price }}</span>)
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-2">
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" :id="'option' + option.id" @change="option.isChecked = $event.target.checked; calculateTotal()">
                                     <label class="custom-control-label" :for="'option' + option.id"></label>

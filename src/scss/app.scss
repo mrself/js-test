@@ -24,8 +24,10 @@
     width: 500px;
     max-width: 100%;
     position: absolute;
-    padding-bottom: 30px;
+    padding-bottom: 15px;
     background: #fff;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ddd;
   }
 
   &__close {

@@ -22,8 +22,10 @@ img {
     width: 500px;
     max-width: 100%;
     position: absolute;
-    padding-bottom: 30px;
-    background: #fff; }
+    padding-bottom: 15px;
+    background: #fff;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ddd; }
   .order__close {
     position: absolute;
     top: 10px;
