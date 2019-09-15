@@ -53,8 +53,7 @@
                             <div class="order__optionDiff col-sm-4">
                                 (add
                                 <span v-if="option.increase">{{ option.increase }}%</span>
-                                <span v-else>${{ option.price }}</span>
-                                )
+                                <span v-else>${{ option.price }}</span>)
                             </div>
                             <div class="col-sm-3">
                                 <div class="custom-control custom-checkbox">
