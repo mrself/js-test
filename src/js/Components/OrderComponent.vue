@@ -1,11 +1,13 @@
 <template>
     <div>
         <div class="order" v-show="showModal">
-            <button class="order__close" @click="hideModal">
-                <i class="fas fa-arrow-left"></i>
-            </button>
-            <div class="order__img">
-                <img :src="order.images.thumbnail" :alt="order.name">
+            <div class="order__inner">
+                <button class="order__close" @click="hideModal">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <div class="order__img">
+                    <img :src="order.images.thumbnail" :alt="order.name">
+                </div>
             </div>
         </div>
 

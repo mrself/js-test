@@ -3,9 +3,17 @@
   transition: all 0.3s;
   display: none;
   animation: fadeIn 0.3s;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255, 0.6);
 
   &--active {
-    display: block;
+    display: flex;
     opacity: 1;
   }
 }
