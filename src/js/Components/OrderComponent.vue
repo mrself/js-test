@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="order" v-show="showModal">
-            <form class="order__inner">
+            <form class="order__inner" @submit.prevent="submit">
                 <button class="order__close" @click="hideModal" type="button">
                     <i class="order__close__icon fas fa-arrow-left"></i>
                 </button>
@@ -16,11 +16,20 @@
                     <input class="order__description form-control" type="text" :placeholder="order.full_description" name="description">
                     <div class="order__formGroup form-group">
                         <label for="order__source">Source</label>
-                        <input id="order__source" type="text" class="order__source form-control" :placeholder="order.Order_details[0].placeholder" :name="order.Order_details[0].name">
+                        <input id="order__source" type="text" class="order__source form-control" :class="{'is-invalid': $v.source.$error}" :placeholder="order.Order_details[0].placeholder" :name="order.Order_details[0].name" v-model="source">
+                        <div class="invalid-feedback" v-if="!$v.source.url">
+                            Please provide a valid url.
+                        </div>
+                        <div class="invalid-feedback" v-if="!$v.source.required">
+                            This field should not be blank.
+                        </div>
                     </div>
                     <div class="order__formGroup form-group">
                         <label for="order__instructions">Instructions</label>
-                        <textarea id="order__instructions" type="text" class="form-control order__instructions" :name="order.Order_details[1].name" :placeholder="order.Order_details[1].placeholder" v-model="instructions"></textarea>
+                        <textarea id="order__instructions" class="form-control order__instructions" :name="order.Order_details[1].name" :placeholder="order.Order_details[1].placeholder" v-model="instructions" :class="{'is-invalid': $v.instructions.$error}"></textarea>
+                        <div class="invalid-feedback" v-if="!$v.instructions.between">
+                            The words count in this fields should be more than 0 and less than 50.
+                        </div>
                     </div>
 
                     <div class="row">
@@ -39,7 +48,13 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">$</div>
                                     </div>
-                                    <input id="order__budget" type="text" class="form-control"  :name="order.Order_details[2].name">
+                                    <input id="order__budget" type="text" class="form-control"  :name="order.Order_details[2].name" v-model="budget" :class="{'is-invalid': $v.budget.$error}">
+                                    <div class="invalid-feedback" v-if="!$v.budget.between">
+                                        This number should be between 5 and 500.
+                                    </div>
+                                    <div class="invalid-feedback" v-if="!$v.budget.required">
+                                        This field should not be blank.
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -75,18 +90,26 @@
             </form>
         </div>
 
+
+
         <button class="orderTrigger" @click="showModal">Create new content</button>
     </div>
 </template>
 
 <script>
+    import {required, url, between} from 'vuelidate/lib/validators';
+    import wordsBetween from '../Validators/WordsBetween';
+
     export default {
         name: "OrderComponent",
 
         data() {
             return {
                 isModalShown: false,
-                total: 0
+                total: 0,
+                source: '',
+                instructions: '',
+                budget: 0
             };
         },
 
@@ -109,11 +132,27 @@
 
             getWritersNumbers() {
                 return [...Array(15).keys()];
+            },
+
+            submit() {
+                this.$v.$touch();
             }
         },
 
         mounted() {
             this.el = $('.order');
+            console.log(this);
+        },
+
+        validations: {
+            source: {required, url},
+            budget: {
+                between: between(5, 500),
+                required
+            },
+            instructions: {
+                wordsBetween: wordsBetween(0, 51)
+            }
         }
     }
 </script>
