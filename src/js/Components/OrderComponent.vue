@@ -9,7 +9,7 @@
             </div>
         </div>
 
-        <button @click="showModal">Create new content</button>
+        <button class="orderTrigger" @click="showModal">Create new content</button>
     </div>
 </template>
 
