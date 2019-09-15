@@ -1,1 +1,15 @@
+.order {
+  opacity: 0;
+  transition: all 0.3s;
+  display: none;
+  animation: fadeIn 0.3s; }
+  .order--active {
+    display: block;
+    opacity: 1; }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 

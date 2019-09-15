@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="order" v-show="showModal">
-            <button class="order__close" @click="showModal = false">
+            <button class="order__close" @click="hideModal">
                 <i class="fas fa-arrow-left"></i>
             </button>
             <div class="order__img">
@@ -9,7 +9,7 @@
             </div>
         </div>
 
-        <button @click="showModal = true">Create new content</button>
+        <button @click="showModal">Create new content</button>
     </div>
 </template>
 
@@ -19,7 +19,7 @@
 
         data() {
             return {
-                showModal: false
+                isModalShown: false
             };
         },
 
@@ -27,6 +27,22 @@
             order: {
                 type: Object
             }
+        },
+
+        methods: {
+            showModal() {
+                this.isModalShown = true;
+                this.el.addClass('order--active');
+            },
+
+            hideModal() {
+                this.isModalShown = false;
+                this.el.removeClass('order--active');
+            }
+        },
+
+        mounted() {
+            this.el = $('.order');
         }
     }
 </script>
