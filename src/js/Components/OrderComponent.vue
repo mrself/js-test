@@ -19,8 +19,8 @@
                         <input id="order__source" type="text" class="order__source form-control" :placeholder="order.Order_details[0].placeholder" :name="order.Order_details[0].name">
                     </div>
                     <div class="order__formGroup form-group">
-                        <label for="order__instructions">Source</label>
-                        <textarea id="order__instructions" type="text" class="form-control order__instructions" :name="order.Order_details[1].name" :placeholder="order.Order_details[1].placeholder"></textarea>
+                        <label for="order__instructions">Instructions</label>
+                        <textarea id="order__instructions" type="text" class="form-control order__instructions" :name="order.Order_details[1].name" :placeholder="order.Order_details[1].placeholder" v-model="instructions"></textarea>
                     </div>
 
                     <div class="row">
