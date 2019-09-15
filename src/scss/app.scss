@@ -98,6 +98,20 @@
     border: none;
     border-radius: 5px;
   }
+
+  &__optionsLabel {
+    padding: 10px;
+    background: #dfe6e9;
+  }
+  
+  &__optionDiff {
+    color: #bcbcbc;
+  }
+
+  &__option {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+  }
 }
 
 .orderTrigger {

@@ -70,6 +70,14 @@ img {
     background: #ecf0f1;
     border: none;
     border-radius: 5px; }
+  .order__optionsLabel {
+    padding: 10px;
+    background: #dfe6e9; }
+  .order__optionDiff {
+    color: #bcbcbc; }
+  .order__option {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee; }
 
 .orderTrigger {
   background: none;

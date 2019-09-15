@@ -44,6 +44,26 @@
                             </div>
                         </div>
                     </div>
+
+                    <p class="order__optionsLabel">Please select options (optional)</p>
+
+                    <div class="order__options">
+                        <div class="order__option row" v-for="option in order.options">
+                            <div class="col-sm-4">{{ option.name }}</div>
+                            <div class="order__optionDiff col-sm-4">
+                                (add
+                                <span v-if="option.increase">{{ option.increase }}%</span>
+                                <span v-else>${{ option.price }}</span>
+                                )
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" :id="'option' + option.id">
+                                    <label class="custom-control-label" :for="'option' + option.id"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
