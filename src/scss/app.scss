@@ -22,8 +22,10 @@
 
   &__inner {
     width: 500px;
+    max-width: 100%;
     position: absolute;
-    padding-bottom: 30px
+    padding-bottom: 30px;
+    background: #fff;
   }
 
   &__close {
