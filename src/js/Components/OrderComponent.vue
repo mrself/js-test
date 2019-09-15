@@ -4,7 +4,13 @@
 
 <script>
     export default {
-        name: "OrderComponent"
+        name: "OrderComponent",
+
+        props: {
+            order: {
+                type: Object
+            }
+        }
     }
 </script>
 
