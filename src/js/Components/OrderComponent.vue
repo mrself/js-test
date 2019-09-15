@@ -34,12 +34,12 @@
                         </div>
                         <div class="col-sm-5">
                             <div class="order__formGroup">
-                                <label for="order__budger">Budget (USD)</label>
+                                <label for="order__budget">Budget (USD)</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">$</div>
                                     </div>
-                                    <input id="order__budger" type="text" class="form-control"  :name="order.Order_details[2].name">
+                                    <input id="order__budget" type="text" class="form-control"  :name="order.Order_details[2].name">
                                 </div>
                             </div>
                         </div>
