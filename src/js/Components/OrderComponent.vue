@@ -16,7 +16,13 @@
                     <input class="order__description form-control" type="text" :placeholder="order.full_description" name="description">
                     <div class="order__formGroup form-group">
                         <label for="order__source">Source</label>
-                        <input id="order__source" type="text" class="order__source form-control" :class="{'is-invalid': $v.source.$error}" :placeholder="order.Order_details[0].placeholder" :name="order.Order_details[0].name" v-model="source">
+                        <input id="order__source"
+                               type="text"
+                               class="order__source form-control"
+                               :class="{'is-invalid': $v.source.$error}"
+                               :placeholder="order.Order_details[0].placeholder"
+                               :name="order.Order_details[0].name"
+                               v-model="source">
                         <div class="invalid-feedback" v-if="!$v.source.url">
                             Please provide a valid url.
                         </div>
@@ -26,7 +32,13 @@
                     </div>
                     <div class="order__formGroup form-group">
                         <label for="order__instructions">Instructions</label>
-                        <textarea id="order__instructions" class="form-control order__instructions" :name="order.Order_details[1].name" :placeholder="order.Order_details[1].placeholder" v-model="instructions" :class="{'is-invalid': $v.instructions.$error}"></textarea>
+                        <textarea id="order__instructions"
+                                  class="form-control order__instructions"
+                                  :name="order.Order_details[1].name"
+                                  :placeholder="order.Order_details[1].placeholder"
+                                  v-model="instructions"
+                                  :class="{'is-invalid': $v.instructions.$error}">
+                        </textarea>
                         <div class="invalid-feedback" v-if="!$v.instructions.between">
                             The words count in this fields should be more than 0 and less than 50.
                         </div>
@@ -48,7 +60,13 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">$</div>
                                     </div>
-                                    <input id="order__budget" type="text" class="form-control"  :name="order.Order_details[2].name" v-model="budget" :class="{'is-invalid': $v.budget.$error}" @change="calculateTotal">
+                                    <input id="order__budget"
+                                           type="text"
+                                           class="form-control"
+                                           :name="order.Order_details[2].name"
+                                           v-model="budget"
+                                           :class="{'is-invalid': $v.budget.$error}"
+                                           @change="calculateTotal">
                                     <div class="invalid-feedback" v-if="!$v.budget.between">
                                         This number should be between 5 and 500.
                                     </div>
@@ -72,7 +90,10 @@
                             </div>
                             <div class="col-2">
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" :id="'option' + option.id" @change="option.isChecked = $event.target.checked; calculateTotal()">
+                                    <input type="checkbox"
+                                           class="custom-control-input"
+                                           :id="'option' + option.id"
+                                           @change="option.isChecked = $event.target.checked; calculateTotal()">
                                     <label class="custom-control-label" :for="'option' + option.id"></label>
                                 </div>
                             </div>
