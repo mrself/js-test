@@ -22,6 +22,28 @@
                         <label for="order__instructions">Source</label>
                         <textarea id="order__instructions" type="text" class="form-control order__instructions" :name="order.Order_details[1].name" :placeholder="order.Order_details[1].placeholder"></textarea>
                     </div>
+
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <div class="order__formGroup form-group">
+                                <label for="order__writersNumber">Number of writers</label>
+                                <select class="form-control" :name="order.Order_details[2].name" id="order__writersNumber">
+                                    <option :value="number + 1" v-for="number in getWritersNumbers()">{{ number + 1 }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="order__formGroup">
+                                <label for="order__budger">Budget (USD)</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">$</div>
+                                    </div>
+                                    <input id="order__budger" type="text" class="form-control" :placeholder="order.Order_details[2].placeholder" :name="order.Order_details[2].name">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
@@ -55,6 +77,10 @@
             hideModal() {
                 this.isModalShown = false;
                 this.el.removeClass('order--active');
+            },
+
+            getWritersNumbers() {
+                return [...Array(15).keys()];
             }
         },
 
