@@ -42,6 +42,62 @@
       vertical-align: middle;
     }
   }
+
+  &__content {
+    padding: 0 10px;
+  }
+
+  &__publication {
+    margin-bottom: 10px;
+    background: #ecf0f1;
+    display: inline-block;
+    padding: 5px 10px;
+    color: #2ecc71;
+    border-radius: 12px;
+
+    &:hover,
+    &:active {
+      color: #2ecc71;
+    }
+  }
+
+  &__description {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: unset;
+    margin-bottom: 10px;
+
+    &:focus {
+      box-shadow: none;
+    }
+
+    &::-webkit-input-placeholder {
+      color: #2980b9;
+    }
+    &::-moz-placeholder {
+      color: #2980b9;
+    }
+    &:-ms-input-placeholder {
+      color: #2980b9;
+    }
+    &:-moz-placeholder {
+      color: #2980b9;
+    }
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 31px;
+    margin: 10px 0;
+  }
+
+  &__instructions,
+  &__source {
+    background: #ecf0f1;
+    border: none;
+    border-radius: 5px;
+  }
 }
 
 .orderTrigger {

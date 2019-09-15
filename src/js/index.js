@@ -9,5 +9,7 @@ $(() => {
             orderData
         },
         components: {OrderComponent}
-    })
+    });
+
+    $('.orderTrigger').click();
 });
