@@ -10,10 +10,10 @@
   right: 0;
   left: 0;
   bottom: 0;
-  align-items: center;
   justify-content: center;
   background: rgba(255,255,255, 0.6);
   padding: 20px;
+  overflow-y: scroll;
 
   &--active {
     display: flex;
@@ -21,8 +21,9 @@
   }
 
   &__inner {
-    position: relative;
     width: 500px;
+    position: absolute;
+    padding-bottom: 30px
   }
 
   &__close {
