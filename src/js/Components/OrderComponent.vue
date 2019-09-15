@@ -39,7 +39,7 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">$</div>
                                     </div>
-                                    <input id="order__budger" type="text" class="form-control" :placeholder="order.Order_details[2].placeholder" :name="order.Order_details[2].name">
+                                    <input id="order__budger" type="text" class="form-control"  :name="order.Order_details[2].name">
                                 </div>
                             </div>
                         </div>
