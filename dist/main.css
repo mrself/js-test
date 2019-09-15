@@ -78,6 +78,20 @@ img {
   .order__option {
     padding: 10px 0;
     border-bottom: 1px solid #eee; }
+  .order__options {
+    margin-bottom: 10px; }
+  .order__submit {
+    width: 100%;
+    background: #0984e3;
+    border: none;
+    padding: 15px;
+    border-radius: 15px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    text-transform: uppercase; }
 
 .orderTrigger {
   background: none;

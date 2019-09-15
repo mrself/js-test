@@ -64,6 +64,14 @@
                             </div>
                         </div>
                     </div>
+
+                    <button class="order__submit">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Submit</span>
+                        <span class="order__total">
+                            $ {{ total }}
+                        </span>
+                    </button>
                 </div>
             </form>
         </div>
@@ -78,7 +86,8 @@
 
         data() {
             return {
-                isModalShown: false
+                isModalShown: false,
+                total: 0
             };
         },
 
